@@ -35,3 +35,5 @@ def vowel_or_consonant():
         print("sometimes a vowel, sometimes a consonant")
     else:
         print("consonant")
+
+vowel_or_consonant()

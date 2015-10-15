@@ -69,12 +69,12 @@ def get_user_input():
     while not input_is_integer:
         output = raw_input("Number of sides:")
 
-        if output.isdigit():
+        if output.isdigit() or output[0] == "-" and output[1:].isdigit():
             output = int(output)
             input_is_integer = True
         else:
             print("Please use an integer.")
-    return output
+    return int(output)
 
 
 

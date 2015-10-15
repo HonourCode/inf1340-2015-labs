@@ -59,7 +59,35 @@ def test_accepted_inputs(capsys):
         assert out == "decagon\n"
 
 
+def test_integers_outside_range(capsys):
+    """
+    Integers that are outside the 3-10 range
+    """
 
+    with mock.patch("__builtin__.raw_input", return_value="1"):
+        name_that_shape()
+        out, err = capsys.readouterr()
+        assert out == "Error\n"
+
+    with mock.patch("__builtin__.raw_input", return_value="2"):
+        name_that_shape()
+        out, err = capsys.readouterr()
+        assert out == "Error\n"
+
+    with mock.patch("__builtin__.raw_input", return_value="11"):
+        name_that_shape()
+        out, err = capsys.readouterr()
+        assert out == "Error\n"
+
+    with mock.patch("__builtin__.raw_input", return_value="-3"):
+        name_that_shape()
+        out, err = capsys.readouterr()
+        assert out == "Error\n"
+
+    with mock.patch("__builtin__.raw_input", return_value="-9"):
+        name_that_shape()
+        out, err = capsys.readouterr()
+        assert out == "Error\n"
 
 
 
